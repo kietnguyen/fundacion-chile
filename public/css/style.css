@@ -1,0 +1,32 @@
+.main-content {
+  margin-top: 0;
+}
+.input-group {
+  margin-bottom: 10px;
+}
+.main-form {
+  padding-top: 0;
+}
+.clear-top {
+  height: 50px;
+}
+.alert {
+  padding: 0;
+  margin: 0;
+}
+.table {
+  width: 100%;
+}
+.table th {
+  font-weight: bold;
+}
+.panel-heading {
+  font-weight: bold;
+}
+.btn-link {
+  padding: 0;
+}
+.logo-letter {
+  font-family: 'Special Elite', cursive;
+  font-size: 22px;
+}

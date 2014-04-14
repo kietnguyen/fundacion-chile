@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .col-md-offset-2.col-md-8
+    .panel.panel-default
+      .panel-heading MISIONES AVANCES
+      table.table.table-bordered
+        thead
+          tr
+            th.text-center Year
+            th.text-center Month
+            th.text-center Organization
+            th.text-center Region
+            th.text-center Edit
+
+        tbody
+
+
+  script.
+    $(document).ready(function() {
+      $.ajax("/getAll").done(function(res) {
+        populateTable(JSON.parse(res));
+      });
+      $("a.a-add-form").click(getAddForm);
+      $("a.a-search-form").click(getSearchForm);
+      $("a.a-remove").click(postRemove);
+    });
