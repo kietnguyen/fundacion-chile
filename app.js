@@ -8,10 +8,21 @@ var express = require('express'),
 
 var routes = require('./routes');
 
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/fundachile';
+
 // connect to db
 var connect = function () {
   var options = { server: { socketOptions: { keepAlive: 1 } } };
-  mongoose.connect("mongodb://localhost/fundachile", options);
+  mongoose.connect(uristring, options, function (err, res) {
+    if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    } else {
+      console.log ('Succeeded connected to: ' + uristring);
+    }
+  });
 };
 connect();
 
@@ -28,7 +39,7 @@ mongoose.connection.on('disconnected', function () {
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.favicon());
