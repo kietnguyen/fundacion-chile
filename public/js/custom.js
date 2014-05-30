@@ -2,6 +2,7 @@ var getSearchForm = function(e) {
   e.preventDefault();
   $.ajax("/search").done(function(data) {
     $(".main-form").html(data);
+    $(".collapse").collapse("hide");
   });
 };
 
@@ -9,6 +10,7 @@ var getAddForm = function(e) {
   e.preventDefault();
   $.ajax("/add").done(function(data) {
     $(".main-form").html(data);
+    $(".collapse").collapse("hide");
   });
 };
 
