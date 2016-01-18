@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 
-require('newrelic');
+//require('newrelic');
 
 var express = require('express'),
     mongoose = require('mongoose'),
